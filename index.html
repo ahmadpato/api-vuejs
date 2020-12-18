@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>VueJs Basic</title>
+  </head>
+  <body>
+
+  	<div class="container" id="app">
+  		<nav class="navbar navbar-light bg-light">
+  			<div class="navbar-text ml-auto">
+  				<b>cart:</b>
+  				<span class="badge badge-pill badge-success">{{ cart.length }}</span>
+  			</div>
+  		</nav>
+
+  		<div class="form-inline mr-auto">
+ 			<label for="" class="font-weight-bold mr-2">max</label>
+ 			<input type="number" class="form-control w-25" v-model="maximum">
+   		</div>
+   		
+   		<input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+	  	<div class="row-d-flex mb-3 align-items-center" v-for="item in products">
+	  		<div v-if="item.price <= Number(maximum)">
+	  			<div class="col-1 m-auto">
+	  				<button class="btn btn-info" v-on:click="addItem(item)">+</button>
+	  			</div>
+		  		<div class="col-sm-4">
+		  	  		<img class="img-fluid" :src="item.image" :alt="item.name">
+		  	  	</div>
+		  	  	<div class="col">
+					<h3 class="text-info">{{ item.name }}</h2>
+					<p class="mb-0">{{ item.description }}</p>
+					<div class="h5 float-right">Rp {{ item.price }}</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
